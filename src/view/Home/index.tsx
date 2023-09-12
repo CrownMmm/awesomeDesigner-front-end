@@ -22,8 +22,7 @@ function Home() {
   const MenuLink = [
     {name: 'HomeOne', link: '/home/one'},
     {name: 'HomeThree', link: '/home/three'},
-    {name: 'Mobx 数据更新', link: '/home/mobx'},
-    {name: 'Phosphor 图标库', link: '/home/four'}
+    {name: 'Mobx 数据更新', link: '/home/mobx'}
   ];
 
   const handleClickLink = (link: string) => {

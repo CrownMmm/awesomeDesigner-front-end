@@ -11,11 +11,16 @@ const HomeOne = SuspenseLazy(() => import(/* webpackChunkName:"home-one" */ '@/v
 const HomeThree = SuspenseLazy(() => import(/* webpackChunkName:"home-three" */ '@/view/Home/HomeThree'));
 const HomeMobx = SuspenseLazy(() => import(/* webpackChunkName:"home-mobx" */ '@/view/Home/HomeMobx'));
 const NotFound = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@/view/NotFound'));
+const Designer = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@/designer'));
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <Navigate to='home/one' /> // 重定向
+    element: <Navigate to='designer' /> // 重定向
+  },
+  {
+    path: 'designer',
+    element: Designer
   },
   {
     path: 'home',
@@ -36,7 +41,6 @@ const routes: RouteObject[] = [
       }
     ]
   },
-
   // 未匹配到页面
   {
     path: '*',
