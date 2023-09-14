@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, CSSProperties } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
 import { getCanvasStyle } from '@/utils/style';
-
+import { changeStyleWithScale } from '@/utils/translate';
 import './index.less';
 
 function Box(props: any) {
@@ -28,7 +28,16 @@ function Box(props: any) {
 
 const Editor = () => {
   const [boxes, setBoxes] = useState<any[]>([]);
-
+  const canvasStyleData: CSSProperties = {
+    // 页面全局数据
+    width: 1200,
+    height: 740,
+    scale: 100,
+    color: '#000',
+    opacity: 1,
+    background: '#fff',
+    fontSize: 14
+  };
   const [, drop] = useDrop(() => {
     return {
       accept: 'box',
@@ -40,7 +49,11 @@ const Editor = () => {
   });
   return (
     <div
-      style={{ border: '1px solid #000', height: 600, width: 600 }}
+      style={{
+        ...getCanvasStyle(canvasStyleData),
+        width: changeStyleWithScale(canvasStyleData.width) + 'px',
+        height: changeStyleWithScale(canvasStyleData.height) + 'px'
+      }}
       ref={drop}
     >
       {boxes.map((item) => {
