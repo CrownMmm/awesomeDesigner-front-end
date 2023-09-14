@@ -2,6 +2,7 @@ import React, { useState, CSSProperties } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
 import { getCanvasStyle } from '@/utils/style';
 import { changeStyleWithScale } from '@/utils/translate';
+import Grid from './components/Grid';
 import './index.less';
 
 function Box(props: any) {
@@ -49,6 +50,7 @@ const Editor = () => {
   });
   return (
     <div
+      className='editor'
       style={{
         ...getCanvasStyle(canvasStyleData),
         width: changeStyleWithScale(canvasStyleData.width) + 'px',
@@ -59,6 +61,7 @@ const Editor = () => {
       {boxes.map((item) => {
         return <Box color={item.color}></Box>;
       })}
+      <Grid />
     </div>
   );
 };
