@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
+import { getCanvasStyle } from '@/utils/style';
 
 import './index.less';
 

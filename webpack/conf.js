@@ -25,15 +25,15 @@ const shouldBase64FromFileEnd = true;
 const divider = '-------------------------------------';
 
 module.exports = {
-    PROJECT_PATH,
-    PROJECT_NAME,
-    SERVER_HOST,
-    SERVER_PORT,
-    shouldOpenAnalyzer,
-    ANALYZER_HOST,
-    ANALYZER_PORT,
-    imageInlineSizeLimit,
-    imageBase64Path,
-    shouldBase64FromFileEnd,
-    divider,
+  PROJECT_PATH,
+  PROJECT_NAME,
+  SERVER_HOST,
+  SERVER_PORT,
+  shouldOpenAnalyzer,
+  ANALYZER_HOST,
+  ANALYZER_PORT,
+  imageInlineSizeLimit,
+  imageBase64Path,
+  shouldBase64FromFileEnd,
+  divider
 };

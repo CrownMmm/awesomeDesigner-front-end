@@ -1,9 +1,10 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
+import './index.less';
 
-interface ItemType {
-  color: string;
-}
+// interface ItemType {
+//   color: string;
+// }
 interface BoxProps {
   color: string;
 }
@@ -13,12 +14,19 @@ function Box(props: BoxProps) {
     item: {
       color: props.color
     }
+    // end: (item, monitor) => {
+    //   const dropResult = monitor.getDropResult<any>();
+    // },
+    // collect: (monitor) => ({
+    //   isDragging: monitor.isDragging(),
+    //   type: monitor.getItemType(),
+    //   item: monitor.getItem(),
+    // })
   });
 
   return (
     <div
       ref={drag}
-      className='box'
       style={{
         background: props.color || 'blue',
         width: 100,
@@ -30,13 +38,6 @@ function Box(props: BoxProps) {
 }
 
 const Components = () => {
-  const [, drag] = useDrag({
-    type: 'box',
-    item: {
-      color: 'blue'
-    }
-  });
-
   return (
     <div>
       <Box color='blue' />

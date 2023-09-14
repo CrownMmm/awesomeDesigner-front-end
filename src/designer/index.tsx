@@ -1,6 +1,6 @@
 import React from 'react';
 import Toobar from './toobar';
-import Components from './components';
+import Components from './custom-components';
 import Editor from './editor';
 import Attributes from './attributes';
 
