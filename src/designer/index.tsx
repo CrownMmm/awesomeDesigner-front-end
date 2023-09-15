@@ -9,9 +9,7 @@ import './index.less';
 const Designer = () => {
   return (
     <div className='container'>
-      <div className='top'>
-        <Toobar />
-      </div>
+      <Toobar />
       <div className='content'>
         <div className='left'>
           <Components />
