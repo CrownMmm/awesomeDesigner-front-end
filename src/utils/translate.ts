@@ -1,9 +1,14 @@
 import _ from 'lodash';
 
-export function changeStyleWithScale(value: string | number | undefined) {
+export function changeStyleWithScale(
+  value: string | number | undefined,
+  scale: number = 100
+) {
   if (value === undefined) {
     return undefined;
   }
-  return value;
-  // return _.multiply(Number(value), _.divide(parseInt(String(value)), 100));
+  console.log();
+
+  // return value;
+  return _.multiply(Number(value), _.divide(parseInt(String(scale)), 100));
 }

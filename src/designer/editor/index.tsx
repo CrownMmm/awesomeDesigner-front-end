@@ -1,7 +1,8 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
 import { getCanvasStyle } from '@/utils/style';
 import { changeStyleWithScale } from '@/utils/translate';
+import useCanvasStyleData from '@/hooks/useCanvasStyleData';
 import Grid from './components/Grid';
 import './index.less';
 
@@ -29,16 +30,7 @@ function Box(props: any) {
 
 const Editor = () => {
   const [boxes, setBoxes] = useState<any[]>([]);
-  const canvasStyleData: CSSProperties = {
-    // 页面全局数据
-    width: 1200,
-    height: 740,
-    scale: 100,
-    color: '#000',
-    opacity: 1,
-    background: '#fff',
-    fontSize: 14
-  };
+  const { canvasStyleData } = useCanvasStyleData();
   const [, drop] = useDrop(() => {
     return {
       accept: 'box',
@@ -53,8 +45,12 @@ const Editor = () => {
       className='editor'
       style={{
         ...getCanvasStyle(canvasStyleData),
-        width: changeStyleWithScale(canvasStyleData.width) + 'px',
-        height: changeStyleWithScale(canvasStyleData.height) + 'px'
+        width:
+          changeStyleWithScale(canvasStyleData.width, canvasStyleData.scale) +
+          'px',
+        height:
+          changeStyleWithScale(canvasStyleData.height, canvasStyleData.scale) +
+          'px'
       }}
       ref={drop}
     >
